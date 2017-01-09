@@ -1,26 +1,29 @@
 # Phonebook docker images
 ==============================
 
-Before use, download Docker http://www.docker.io
+Перед использованием, необходим Docker http://www.docker.io
 
-### First image - run phonebook.jar app
+### Первый контейнер - запускет приложение phonebook.jar
 
-To build the first image with docker:
+Для сборки коннтейнера введите в коммандую строку следущее:
 
     cd first
     docker build -t first .
 
-Then to run that image :
+Для запуска введите :
 
     docker run first
 
-### Second image - build Phonebook and create ".jar" app, ".jar" would be in directory where you run docker
+### Второй контейнер - выполняет сборку приложения Phonebook и создает ".jar" приложение в директории в которой работает Docker
 
-To build the secong image with docker:
+Для сборки коннтейнера введите в коммандую строку следущее:
 
     cd second
     docker build -t second .
 
-Then to run that image :
+Для запуска введите :
 
     docker run -v $(pwd):/target second
+    
+----------------------------------------
+### P.S.: В связи с тем что приложение читает аргументы коммандной строки которые не передаются Докером, появляеться исключение "Array Index Out Of Bound", которое не позволяет полноценно запуститься проекту. В остальном Докер в полном объеме выполняет свою работу по сборке и запуску проекта.
